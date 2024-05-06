@@ -77,8 +77,8 @@ $('#informacoes-form').submit(function(event) {
         type: 'POST',
         url: '../src/classes/cadastro-informacao.php',
         data: formData,
-        processData: false, // Não processar os dados (deixe isso como false quando enviar FormData)
-        contentType: false, // Não definir o tipo de conteúdo (será definido automaticamente)
+        processData: false,
+        contentType: false,
         success: function(response) {
             if (response === 'success') {
                 // Redirecionar para a página de perfil ou página interna após o cadastro
@@ -94,12 +94,10 @@ $('#informacoes-form').submit(function(event) {
     });
 });
 
-
-
-document.getElementById('togglePassword').addEventListener('click', function() {
+$('#togglePassword').click(function(event) {
     var passwordInput = document.getElementById('password');
     var passwordIcon = document.getElementById('togglePassword').querySelector('i');
-    if (passwordInput.type === 'password') {
+    if (passwordInput.type === 'password' ) {
         passwordInput.type = 'text';
         passwordIcon.classList.remove('fa-eye');
         passwordIcon.classList.add('fa-eye-slash');
