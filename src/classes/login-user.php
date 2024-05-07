@@ -47,12 +47,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $stmt_info->close();
         } else {
-            echo "error: Email ou Senha incorretos";
+            echo "error";
         }
         $stmt->close();
     } else {
-        echo "error: Não foi possivel preparar a consulta SQL";
+        echo "error";
     }
 } else {
-    echo "error: METHOD POST NÃO RECEBIDO";
+    echo "error";
 }
