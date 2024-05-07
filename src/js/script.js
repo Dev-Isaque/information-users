@@ -15,13 +15,10 @@ $('#login-form').submit(function(event) {
         },
         success: function(response) {
             if (response === 'success') {
-                // Redirecionar para a página principal após o login
                 window.location.href = '../index.php';
             } else if (response === 'no_info') {
-                // Redirecionar para a página de cadastro de informações
                 window.location.href = 'cadastro-informacao.php';
             } else {
-                // Exibir mensagem de erro
                 $('#error-msg').text('Nome de usuário ou senha incorretos.');
             }
         },
@@ -50,7 +47,7 @@ $('#cadastro-form').submit(function(event) {
             },
             success: function(response) {
                 alert(response);
-                window.location.href = 'login.php'; // Redireciona para a página de login após o cadastro bem-sucedido
+                window.location.href = 'login.php';
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText); 
@@ -94,13 +91,37 @@ $('#informacoes-form').submit(function(event) {
     });
 });
 
+// Função para deixar a senha visivel ou invisivel
 $('#togglePassword').click(function() {
-    // Seleciona o campo de senha
     var password = $('#password');
-    // Alterna o tipo de atributo do campo de senha entre 'password' e 'text'
-    var type = password.attr('type') === 'password' ? 'text' : 'password';
-    password.attr('type', type);
+    var password_login = $('#password-login');
 
-    // Seleciona o ícone de olho dentro do elemento clicado
+    if(password.length > 0) {
+        var type = password.attr('type') === 'password' ? 'text' : 'password';
+        password.attr('type', type);
+    } else if(password_login.length > 0) {
+        var type = password_login.attr('type') === 'password' ? 'text' : 'password';
+        password_login.attr('type', type);
+    } else {
+        return;
+    }
+
+    // Altera apenas o ícone quando clicado
     $('.toggle-icon').toggleClass('fa-eye-slash fa-eye');
+
+    // Mantém a cor selecionada para o ícone
+    var iconColor = $('.toggle-icon').css('color');
+    $('.toggle-icon').css('color', iconColor);
+});
+
+// Função para alterar a cor do ícone quando algo é digitado no input
+$('#password, #password-login').on('input', function() {
+    var password = $('#password');
+    var password_login = $('#password-login');
+
+    if(password.length > 0 && password.val() !== '') {
+        $('.toggle-icon').css('color', 'black');
+    } else if(password_login.length > 0 && password_login.val() !== '') {
+        $('.toggle-icon').css('color', 'black');
+    }
 });
