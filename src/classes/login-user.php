@@ -31,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id'] = $user['id'];
             $_SESSION['nome'] = $user['nome'];
             
-            // Verificar se o usuário possui informações na tabela informacoes_usuario
             $user_id = $user['id'];
             $sql_info = "SELECT * FROM informacoes_usuario WHERE usuario_id = ?";
             $stmt_info = $conn->prepare($sql_info);
@@ -41,24 +40,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // Verificar se há resultados
             if ($result_info->num_rows == 0) {
-                // Não há informações para o usuário, redirecionar para a página de cadastro de informações
                 echo "no_info";
             } else {
-                // O usuário possui informações, redirecionar para a página principal ou outra página de destino
                 echo "success";
             }
 
             $stmt_info->close();
         } else {
-            // E-mail ou senha incorretos
-            echo "error";
+            echo "error: Email ou Senha incorretos";
         }
         $stmt->close();
     } else {
-        // Erro ao preparar a consulta
-        echo "error";
+        echo "error: Não foi possivel preparar a consulta SQL";
     }
 } else {
-    // Se a requisição não for feita via método POST, exibe uma mensagem de erro
-    echo "error";
+    echo "error: METHOD POST NÃO RECEBIDO";
 }
