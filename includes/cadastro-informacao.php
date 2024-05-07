@@ -28,8 +28,8 @@
                 <textarea class="form-control" id="biografia" name="biografia" rows="4" required></textarea>
             </div>
             <div class="form-group">
-                <label for="imagem_perfil">Imagem de Perfil:</label>
-                <input type="file" class="form-control-file" id="imagem_perfil" name="imagem_perfil" required>
+                <label for="imagem_perfil">Imagem de Perfil (JPG, JPEG, PNG):</label>
+                <input type="file" class="form-control-file" id="imagem_perfil" name="imagem_perfil" accept=".jpg, .jpeg, .png" required>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>

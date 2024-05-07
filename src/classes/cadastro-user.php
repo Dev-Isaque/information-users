@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt) {
             $stmt->bind_param("sss", $nome, $email, $senha_hash);
             if ($stmt->execute()) {
-                echo "Usuário cadastrado com sucesso!";
+                echo "Usuário cadastrado com sucesso! Já pode realizar o login";
             } else {
                 echo "Erro ao executar a consulta: " . $stmt->error;
             }

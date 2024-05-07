@@ -50,6 +50,7 @@ $('#cadastro-form').submit(function(event) {
             },
             success: function(response) {
                 alert(response);
+                window.location.href = 'login.php'; // Redireciona para a página de login após o cadastro bem-sucedido
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText); 

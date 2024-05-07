@@ -11,8 +11,8 @@
                 <input type="password" class="form-control" id="password-login" name="password-login" placeholder="Password" required>
                 <div class="input-group-prepend">
                     <span class="input-group-text password-icon" id="togglePassword">
-                        <i class="fas fa-eye"></i>
-                    </span>
+
+                </span>
                 </div>
             </div>
 
