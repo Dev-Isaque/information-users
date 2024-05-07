@@ -1,36 +1,31 @@
 <?php include 'header.php'?>
 
-<div class="container">
-    <h2 class="mt-5">Cadastro</h2>
-    <form id="cadastro-form" action="cadastro.php" method="post">
-        <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
-            <div class="invalid-feedback">Por favor, preencha seu nome.</div>
+<div class="login-box">
+  <h2>Cadastro</h2>
+  <form id="cadastro-form" action="cadastro.php" method="post">
+    <div class="user-box">
+      <input type="text" id="nome" name="nome" required>
+      <label for="nome">Nome</label>
+    </div>
+    <div class="user-box">
+      <input type="email" id="email" name="email" required>
+      <label for="email">Email</label>
+    </div>
+    <div class="user-box">
+        <input type="password" class="form-control" id="password" name="password" required>
+        <label for="password">Senha</label>
+        <div class="password-toggle" id="togglePassword">
+            <i class="fas fa-eye toggle-icon"></i>
         </div>
-
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-            <div class="invalid-feedback">Por favor, preencha um email válido.</div>
-        </div>
-
-        <div class="form-group position-relative">
-            <label for="password">Senha:</label>
-            <div class="input-group">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                <div class="input-group-prepend">
-                    <span class="input-group-text password-icon" id="togglePassword">
-                        <i class="fas fa-eye"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="invalid-feedback">Por favor, preencha sua senha.</div>
-        </div>
-        
-        <button type="submit" class="btn btn-primary" id="submitBtn">Cadastrar</button>
-    </form>
+    </div>
+    <button type="submit" id="submitBtn" class="submit-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Cadastrar
+    </button>
+  </form>
 </div>
-
 
 <?php include 'rodape.php'?>

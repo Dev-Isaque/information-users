@@ -46,21 +46,25 @@
 </head>
 <body>
 
-    <div class="container mt-5">
-        <div class="card">
+    <div class="container mt-5 curriculum-container">
+        <div class="card curriculum-card">
             <div class="card-body">
-                <h3 class="card-title">Curriculum Vitae</h3>
-                <div class="card-text">
+                <h3 class="card-title curriculum-title">Curriculum Vitae</h3>
+                <div class="d-flex align-items-center curriculum-info">
                     <?php if(!empty($imagem_perfil)): ?>
-                        <img src="src/image/uploads/<?php echo $imagem_perfil; ?>" alt="Imagem de Perfil" class="img-fluid mb-3">
+                        <div class="rounded-circle overflow-hidden mr-3">
+                            <img src="src/image/uploads/<?php echo $imagem_perfil; ?>" alt="Imagem de Perfil" class="img-fluid">
+                        </div>
                     <?php endif; ?>
-                    <p><strong>Nome:</strong> <?php echo $nome; ?></p>
-                    <p><strong>Idade:</strong> <?php echo $idade; ?></p>
-                    <p><strong>Rua:</strong> <?php echo $rua; ?></p>
-                    <p><strong>Bairro:</strong> <?php echo $bairro; ?></p>
-                    <p><strong>Estado:</strong> <?php echo $estado; ?></p>
-                    <p><strong>Biografia:</strong> <?php echo $biografia; ?></p>
+                    <div class="curriculum-details">
+                        <p><strong>Nome:</strong> <?php echo $nome; ?></p>
+                        <p><strong>Idade:</strong> <?php echo $idade; ?></p>
+                    </div>
                 </div>
+                <p><strong>Rua:</strong> <?php echo $rua; ?></p>
+                <p><strong>Bairro:</strong> <?php echo $bairro; ?></p>
+                <p><strong>Estado:</strong> <?php echo $estado; ?></p>
+                <p class="curriculum-bio"><strong>Biografia:</strong> <?php echo $biografia; ?></p>
             </div>
         </div>
     </div>

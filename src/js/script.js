@@ -82,7 +82,6 @@ $('#informacoes-form').submit(function(event) {
         contentType: false,
         success: function(response) {
             if (response === 'success') {
-                // Redirecionar para a página de perfil ou página interna após o cadastro
                 window.location.href = '../index.php';
             } else {
                 $('#error-msg').text('Erro ao cadastrar informações do usuário.');
@@ -95,16 +94,13 @@ $('#informacoes-form').submit(function(event) {
     });
 });
 
-$('#togglePassword').click(function(event) {
-    var passwordInput = document.getElementById('password');
-    var passwordIcon = document.getElementById('togglePassword').querySelector('i');
-    if (passwordInput.type === 'password' ) {
-        passwordInput.type = 'text';
-        passwordIcon.classList.remove('fa-eye');
-        passwordIcon.classList.add('fa-eye-slash');
-    } else {
-        passwordInput.type = 'password';
-        passwordIcon.classList.remove('fa-eye-slash');
-        passwordIcon.classList.add('fa-eye');
-    }
+$('#togglePassword').click(function() {
+    // Seleciona o campo de senha
+    var password = $('#password');
+    // Alterna o tipo de atributo do campo de senha entre 'password' e 'text'
+    var type = password.attr('type') === 'password' ? 'text' : 'password';
+    password.attr('type', type);
+
+    // Seleciona o ícone de olho dentro do elemento clicado
+    $('.toggle-icon').toggleClass('fa-eye-slash fa-eye');
 });
