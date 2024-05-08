@@ -29,6 +29,8 @@
         Cadastrar
       </button>
     </form>
+
+    <p class="white-text mt-2"> Já possui uma conta? <a href="login.php"> Login </a>.</p>
   </div>
 </div>
 

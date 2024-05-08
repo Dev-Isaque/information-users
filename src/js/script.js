@@ -46,8 +46,11 @@ $('#cadastro-form').submit(function(event) {
                 password: password
             },
             success: function(response) {
+                // Limpa os campos após o envio bem-sucedido
+                $('#nome').val('');
+                $('#email').val('');
+                $('#password').val('');
                 alert(response);
-                window.location.href = 'login.php';
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText); 
@@ -125,3 +128,11 @@ $('#password, #password-login').on('input', function() {
         $('.toggle-icon').css('color', 'black');
     }
 });
+
+
+// Função para trocar icon menu Hamburguer
+
+$('.navbar-toggler').click(function() {
+    $('.navbar-collapse').toggleClass('show');
+});
+
