@@ -251,7 +251,7 @@ animation-delay: .75s
 
 /****** NAVBAR ******/
 .navbar {
-  background: #333; /* Gradiente de fundo */
+  background: #020840;
   padding: 0;
   box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
   transition: padding 0.3s, box-shadow 0.3s;
@@ -330,12 +330,12 @@ input[type="checkbox"]:checked + .slider:before {
     background-color: #333;
     z-index: 1000;
     padding: 20px;
-    display: none; /* Inicialmente oculto */
+    display: none; 
   }
   .navbar-collapse.show {
     margin-top: 9vh;
     transform: translateX(0%);
-    display: block; /* Mostra quando a classe 'show' está presente */
+    display: block; 
   }
   .navbar-nav {
     height: 100%;
