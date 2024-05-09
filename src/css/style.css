@@ -25,6 +25,12 @@ html, body {
 
 /****** PAGINA DE INDEX ******/
 
+.perfil-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
 .card-box {
   position: absolute;
   top: 50%;
@@ -41,13 +47,9 @@ html, body {
 }
 
 
-.perfil-container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
 
 .perfil-card {
+  margin-top: 5vh;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

@@ -30,7 +30,7 @@
       </nav>
   </header>
 
-  <div class="container mt-5 perfil-container">
+  <div class="container perfil-container">
       <div class="card perfil-card card-box">
           <div class="card-body">
               <h3 class="card-title perfil-title"> Perfil do Usuário </h3>
