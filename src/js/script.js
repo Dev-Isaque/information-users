@@ -51,6 +51,7 @@ $('#cadastro-form').submit(function(event) {
                 $('#email').val('');
                 $('#password').val('');
                 alert(response);
+                window.location.href = 'login.php';
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText); 
@@ -90,6 +91,38 @@ $('#informacoes-form').submit(function(event) {
         error: function(xhr, status, error) {
             console.error(xhr.responseText);
             $('#error-msg').text('Ocorreu um erro durante o cadastro. Por favor, tente novamente.');
+        }
+    });
+});
+
+$('#editar-perfil-form').submit(function(event) {
+    // Previne o comportamento padrão do formulário
+    event.preventDefault();
+
+    // Obtém os dados do formulário
+    var formData = new FormData(this);
+
+    // Envia os dados usando AJAX
+    $.ajax({
+        url: '../src/classes/editar-perfil.php',
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            // Verifica se a atualização foi bem-sucedida
+            if (response.success) {
+                // Redireciona para a página de perfil
+                window.location.href = '../index.php';
+            } else {
+                // Exibe uma mensagem de erro
+                alert('Erro ao atualizar o perfil.');
+            }
+        },
+        error: function() {
+            // Exibe uma mensagem de erro em caso de falha na requisição AJAX
+            alert('Erro ao enviar dados.');
         }
     });
 });

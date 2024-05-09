@@ -1,6 +1,5 @@
 <?php include 'header.php' ?>
 
-
 <div class="background-gradient"></div>
 
 <div class="gradient-container">
@@ -30,6 +29,5 @@
     <p class="white-text">Não tem uma conta? <a href="cadastro-user.php">Crie uma agora</a>.</p>
   </div>
 </div>
-
 
 <?php include 'rodape.php' ?>
