@@ -99,29 +99,22 @@ $('#editar-perfil-form').submit(function(event) {
     // Previne o comportamento padrão do formulário
     event.preventDefault();
 
-    // Obtém os dados do formulário
     var formData = new FormData(this);
 
-    // Envia os dados usando AJAX
     $.ajax({
-        url: '../src/classes/editar-perfil.php',
         type: 'POST',
+        url: '../src/classes/editar-perfil.php',
         data: formData,
-        dataType: 'json',
         contentType: false,
         processData: false,
         success: function(response) {
-            // Verifica se a atualização foi bem-sucedida
-            if (response.success) {
-                // Redireciona para a página de perfil
+            if (response.trim() === 'success') { // Verifica se a resposta é 'success'
                 window.location.href = '../index.php';
             } else {
-                // Exibe uma mensagem de erro
                 alert('Erro ao atualizar o perfil.');
             }
         },
         error: function() {
-            // Exibe uma mensagem de erro em caso de falha na requisição AJAX
             alert('Erro ao enviar dados.');
         }
     });
