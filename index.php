@@ -11,7 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="src/css/style.css">
 </head>
-<body>
+<body class="background-gradient white-text">
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -21,51 +21,37 @@
       </button>
       <div class="navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto align-items-center">
-          <!-- Modo de Escolha -->
-          <li class="nav-item">
-            <i class="far fa-sun sun-moon-icon"></i>
-          </li>
-          <li class="nav-item">
-            <label class="toggle-switch">
-              <input type="checkbox" id="toggle-mode">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li class="nav-item">
-            <i class="far fa-moon sun-moon-icon"></i>
-          </li>
           <!-- Botão de Logout -->
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-sign-out-alt logout-icon"></i> Logout</a>
+            <a class="nav-link" href="src/classes/logout-user.php" id="logout"><i class="fas fa-sign-out-alt logout-icon"></i> Logout</a>
           </li>
         </ul>
       </div>
     </nav>
-  </header>
+</header>
 
-
-    <div class="container mt-5 curriculum-container">
-        <div class="card curriculum-card">
-            <div class="card-body">
-                <h3 class="card-title curriculum-title"> Perfil do Usuário </h3>
-                <div class="d-flex align-items-center curriculum-info">
-                    <?php if(!empty($imagem_perfil)): ?>
-                        <div class="rounded-circle overflow-hidden mr-3">
-                            <img src="src/image/uploads/<?php echo $imagem_perfil; ?>" alt="Imagem de Perfil" class="img-fluid">
-                        </div>
-                    <?php endif; ?>
-                    <div class="curriculum-details">
-                        <p><strong>Nome:</strong> <?php echo $nome; ?></p>
-                        <p><strong>Idade:</strong> <?php echo $idade; ?></p>
+<div class="container mt-5 curriculum-container">
+    <div class="card curriculum-card form-box">
+        <div class="card-body">
+            <h3 class="card-title curriculum-title"> Perfil do Usuário </h3>
+            <div class="d-flex align-items-center curriculum-info">
+                <?php if(!empty($imagem_perfil)): ?>
+                    <div class="rounded-circle overflow-hidden mr-3">
+                        <img src="src/image/uploads/<?php echo $imagem_perfil; ?>" alt="Imagem de Perfil" class="img-fluid">
                     </div>
+                <?php endif; ?>
+                <div class="curriculum-details">
+                    <p><strong>Nome:</strong> <?php echo $nome; ?></p>
+                    <p><strong>Idade:</strong> <?php echo $idade; ?></p>
                 </div>
-                <p><strong>Rua:</strong> <?php echo $rua; ?></p>
-                <p><strong>Bairro:</strong> <?php echo $bairro; ?></p>
-                <p><strong>Estado:</strong> <?php echo $estado; ?></p>
-                <p class="curriculum-bio"><strong>Biografia:</strong> <?php echo $biografia; ?></p>
             </div>
+            <p><strong>Rua:</strong> <?php echo $rua; ?></p>
+            <p><strong>Bairro:</strong> <?php echo $bairro; ?></p>
+            <p><strong>Estado:</strong> <?php echo $estado; ?></p>
+            <p class="curriculum-bio"><strong>Biografia:</strong> <?php echo $biografia; ?></p>
         </div>
     </div>
+</div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
