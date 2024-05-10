@@ -1,12 +1,5 @@
 <?php
 include_once 'conn.php';
-session_start();
-
-// Verifica se o usuário não está autenticado
-if (!isset($_SESSION['id'])) {
-    header("Location: includes/login.php");
-    exit;
-}
 
 // Consulta ao banco de dados para obter os dados do currículo
 $sql = "SELECT imagem_perfil, nome, idade, rua, bairro, estado, biografia FROM informacoes_usuario WHERE usuario_id = ?";
@@ -27,6 +20,6 @@ if ($result->num_rows > 0) {
         $biografia = $row['biografia'];
     }
 } else {
-    echo "Nenhum currículo encontrado."; // Mensagem caso não haja currículo associado ao usuário
+    echo "Nenhum currículo encontrado.";
     exit;
 }

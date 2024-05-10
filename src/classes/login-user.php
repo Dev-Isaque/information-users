@@ -9,11 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Prepara os dados recebidos do formulário
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    // Consulta SQL para verificar se o usuário existe no banco de dados
     $sql = "SELECT * FROM usuarios WHERE email = ?";
 
     $stmt = $conn->prepare($sql);
@@ -38,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_info->execute();
             $result_info = $stmt_info->get_result();
 
-            // Verificar se há resultados
             if ($result_info->num_rows == 0) {
                 echo "no_info";
             } else {

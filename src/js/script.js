@@ -155,13 +155,10 @@ $("#informacoes-form").submit(function (event) {
 });
 
 $("#editar-perfil-form").submit(function (event) {
-  // Previne o comportamento padrão do formulário
   event.preventDefault();
 
   // Exibe um prompt de confirmação
   var confirmacao = confirm("Deseja mesmo atualizar o cadastro?");
-
-  // Se o usuário confirmar, prossegue com o envio do formulário
   if (confirmacao) {
     var formData = new FormData(this);
 

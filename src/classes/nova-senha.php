@@ -1,25 +1,22 @@
 <?php
 
-// Conexão com o banco de dados
 require_once 'conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se os dados necessários foram recebidos
-    if(isset($_POST["email"]) && isset($_POST["novaSenha"])) {
-        // Recebe os dados do formulário
+    if (isset($_POST["email"]) && isset($_POST["novaSenha"])) {
         $email = $_POST["email"];
         $novaSenha = $_POST["novaSenha"];
-        
+
         // Criptografa a nova senha
         $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
 
         // Consulta para atualizar a senha do usuário
         $sql = "UPDATE usuarios SET senha = ? WHERE email = ?";
         $stmt = $conn->prepare($sql);
-        
+
         // Verifica se a preparação da consulta foi bem-sucedida
-        if($stmt) {
-            // Liga os parâmetros e executa a consulta
+        if ($stmt) {
             $stmt->bind_param("ss", $senhaHash, $email);
             if ($stmt->execute()) {
                 echo "Senha atualizada com sucesso!";

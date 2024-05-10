@@ -1,6 +1,35 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['id'])) {
+  // Redireciona para a página de login
+  header("Location: login.php");
+  exit;
+}
+?>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand mx-2" href=""> <i class="fa-solid fa-code"></i> </a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav d-flex align-items-center">
+        <!-- Botão de Logout -->
+        <li id="logout-icon" class="nav-item">
+          <a class="nav-link" href="../src/classes/logout-user.php" id="logout"><i class="fas fa-sign-out-alt logout-icon"></i> Sair </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
 <?php include 'header.php' ?>
 
-<div class="gradient-container">
+<div class="gradient-container" style="margin-top: -100px; margin-bottom:20px;">
   <div class="form-box form-box-info">
     <h2>Cadastro de Informações</h2>
     <form id="informacoes-form" action="cadastro-informacao.php" method="post">
@@ -33,7 +62,7 @@
         <input type="file" class="form-control-file" id="imagem_perfil" name="imagem_perfil" accept=".jpg, .jpeg, .png" required>
       </div>
 
-      <button type="submit" class="submit-btn custom-btn">
+      <button type="submit" class="submit-btn custom-btn mt-5">
         <span></span>
         <span></span>
         <span></span>

@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    // Redireciona para a página de login
+    header("Location: includes/login.php");
+    exit;
+}
+?>
+
 <?php include 'src/classes/perfil.php' ?>
 
 <!DOCTYPE html>

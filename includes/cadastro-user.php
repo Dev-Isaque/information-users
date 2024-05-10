@@ -1,5 +1,6 @@
 <?php include 'header.php' ?>
 
+
 <div class="gradient-container">
   <div class="form-box mb-5">
     <h2>Cadastro</h2>
