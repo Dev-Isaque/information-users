@@ -1,7 +1,7 @@
 <?php include 'header.php' ?>
 
 <div class="gradient-container">
-  <div class="form-box">
+  <div class="form-box mb-5">
     <h2>Cadastro</h2>
     <form id="cadastro-form" action="cadastro.php" method="post">
       <div class="user-box">
@@ -15,7 +15,7 @@
       <div class="user-box">
         <input type="password" class="form-control" id="password" name="password" required>
         <label for="password">Senha</label>
-        <div class="password-toggle" id="togglePassword">
+        <div class="password-toggle togglePassword">
           <i class="fas fa-eye toggle-icon"></i>
         </div>
       </div>
@@ -28,7 +28,7 @@
       </button>
     </form>
 
-    <p class="white-text mt-2"> Já possui uma conta? <a href="login.php"> Login </a>.</p>
+    <p class="white-text mt-4"> Já possui uma conta? <a href="login.php"> Login </a>.</p>
   </div>
 </div>
 

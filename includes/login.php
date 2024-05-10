@@ -11,7 +11,7 @@
       <div class="user-box">
         <input type="password" class="form-control" id="password-login" name="password-login" required>
         <label for="password-login">Senha</label>
-        <div class="password-toggle" id="togglePassword">
+        <div class="password-toggle togglePassword">
           <i class="fas fa-eye toggle-icon"></i>
         </div>
       </div>
@@ -24,7 +24,8 @@
       </button>
     </form>
     <p id="error-msg" class="error-msg white-text"></p>
-    <p class="white-text">Não tem uma conta? <a href="cadastro-user.php">Crie uma agora</a>.</p>
+    <p class="white-text mt-4">Não tem uma conta? <a href="cadastro-user.php">Crie uma agora</a>.</p>
+    <p class="white-text">Esqueceu sua senha? <a href="recuperar-senha.php">Recupere-a aqui</a>.</p>
   </div>
 </div>
 

@@ -1,8 +1,37 @@
 <?php include 'header.php' ?>
 <?php include '../src/classes/perfil.php' ?>
-<?php include 'navbar.php' ?>
 
-<div class="gradient-container">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand mx-2" href="../index.php"> <i class="fa-solid fa-code"></i> </a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav d-flex align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.php"><i class="fa-solid fa-house"></i> Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="editar-perfil.php"><i class="fa-solid fa-pen-to-square"></i> Editar Perfil </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true"><i class="fa-solid fa-folder-open"></i> Projetos </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true"><i class="fa-solid fa-address-book"></i> Contato </a>
+        </li>
+        <!-- Botão de Logout -->
+        <li id="logout-icon" class="nav-item">
+          <a class="nav-link" href="../src/classes/logout-user.php" id="logout"><i class="fas fa-sign-out-alt logout-icon"></i> Sair </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+<div class="gradient-container form-mobile">
   <div class="form-edit form-box">
     <h2>Editar Perfil</h2>
     <form id="editar-perfil-form" action="editar-perfil.php" method="post" enctype="multipart/form-data">
@@ -61,18 +90,8 @@
   </div>
 </div>
 
-<script>
-  function previewImage(input) {
-    var preview = document.getElementById('preview');
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        preview.src = e.target.result;
-        preview.style.display = 'block';
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-</script>
+<div class="back-to-index">
+  <a href="../index.php"><i class="fas fa-home"></i></a>
+</div>
 
 <?php include 'rodape.php' ?>

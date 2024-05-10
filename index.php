@@ -15,29 +15,55 @@
 
 <body class="background-gradient white-text">
 
-  <?php include 'includes/navbar.php' ?>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand mx-2" href="index.php"> <i class="fa-solid fa-code "></i> </a>
+      <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php"><i class="fa-solid fa-house"></i> Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="includes/editar-perfil.php"><i class="fa-solid fa-pen-to-square"></i> Editar Perfil </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true"><i class="fa-solid fa-folder-open"></i> Projetos </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true"><i class="fa-solid fa-address-book"></i> Contato </a>
+          </li>
+          <!-- Botão de Logout -->
+          <li id="logout-icon" class="nav-item">
+            <a class="nav-link" href="src/classes/logout-user.php" id="logout"><i class="fas fa-sign-out-alt logout-icon"></i> Sair </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-  <div class="container perfil-container">
+  <div class="container perfil-container form-mobile">
     <div class="card perfil-card card-box">
       <div class="card-body">
         <div class="perfil-subtitle">
           <h3 class="card-title perfil-title">Perfil do Usuário</h3>
           <hr>
         </div>
-        <div class="d-flex align-items-center perfil-info">
+        <div class="d-flex align-items-center justify-content-start perfil-info">
           <?php if (!empty($imagem_perfil)) : ?>
             <div class="rounded-circle overflow-hidden mr-3 img-profile">
               <img src="src/image/uploads/<?php echo $imagem_perfil; ?>" alt="Imagem de Perfil" class="img-fluid">
             </div>
           <?php endif; ?>
           <div class="mt-3 perfil-details user-info">
-            <p><strong>Nome:</strong> <br> <span><?php echo $nome; ?></span></p>
-            <p><strong>Idade:</strong> <br> <span><?php echo $idade; ?></span></p>
+            <p><strong>Nome:</strong><br><span><?php echo $nome; ?></span></p>
+            <p><strong>Idade:</strong><br><span><?php echo $idade; ?></span></p>
           </div>
         </div>
-
         <!-- Endereço -->
-        <div class="perfil-section mb-3 mt-3">
+        <div class="perfil-section mb-3 mt-3 ">
           <div class="perfil-subtitle">
             <h4>Endereço</h4>
             <hr>
@@ -80,6 +106,20 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="src/js/script.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $(document).click(function(event) {
+        var navbarToggle = $('.navbar-toggler');
+        if (!navbarToggle.is(event.target) && navbarToggle.has(event.target).length === 0) {
+          var navbarCollapse = $('.navbar-collapse');
+          if (navbarCollapse.hasClass('show')) {
+            navbarCollapse.collapse('hide');
+          }
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

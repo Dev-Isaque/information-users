@@ -143,14 +143,11 @@ body {
 }
 
 .form-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 80%;
-  max-width: 350px;
+  max-width: 400px;
   padding: 40px;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
   border-radius: 10px;
@@ -324,7 +321,8 @@ body {
 
 .form-edit {
   max-width: 600px;
-  margin-top: 150px;
+  margin-top: -100px;
+  margin-bottom: 25px;
 }
 
 /****** EDITAR PERFIL ******/
@@ -354,13 +352,39 @@ label#imagem_label {
   cursor: pointer;
 }
 
+.back-to-index {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  z-index: 999;
+}
+
+.back-to-index a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  /* Centraliza o ícone verticalmente */
+  text-align: center;
+  background-color: #03e9f4;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-index a:hover {
+  background-color: #03e8f4b9;
+}
+
 /****** NAVBAR ******/
 .navbar {
   background: linear-gradient(#141e30, #243b55);
   padding: 0;
   box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
   transition: padding 0.3s, box-shadow 0.3s;
-  height: 10vh;
+  height: 11vh;
 }
 
 .navbar-brand {
@@ -372,6 +396,10 @@ label#imagem_label {
 }
 
 .logout-icon {
+  font-size: 28px;
+}
+
+.fa-code {
   font-size: 24px;
 }
 
@@ -450,8 +478,7 @@ label#imagem_label {
 }
 
 /****** MEDIA QUERY ******/
-
-@media (max-width: 998px) {
+@media (max-width: 992px) {
   .navbar-collapse {
     height: 100%;
     max-height: 100%;
@@ -466,12 +493,19 @@ label#imagem_label {
   }
 
   .navbar-collapse.show {
-    margin-top: 9vh;
+    margin-top: 10vh;
     transform: translateX(0%);
     display: block;
   }
 
+  .navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+
   .navbar-nav {
+    position: relative;
     height: 100%;
     padding-top: 60px;
   }
@@ -499,8 +533,24 @@ label#imagem_label {
     display: block;
   }
 
+  #logout-icon {
+    position: absolute;
+    bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .back-to-index {
+    bottom: 20px;
+    right: 20px;
+  }
+
   .navbar-toggler.collapsed .navbar-toggler-icon::after {
     content: "\00D7";
+  }
+
+  .form-mobile {
+    margin-top: 10vh;
   }
 }
 
@@ -512,6 +562,11 @@ label#imagem_label {
   .curriculum-info {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .back-to-index {
+    bottom: 10px;
+    right: 10px;
   }
 
   .curriculum-info img {
