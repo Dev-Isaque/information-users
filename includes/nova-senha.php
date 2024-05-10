@@ -23,7 +23,7 @@
         <span></span>
         <span></span>
         <span></span>
-        Definir Senha
+        Redefinir Senha
       </button>
     </form>
     <p id="error-msg" class="error-msg white-text"></p>
