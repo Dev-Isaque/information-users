@@ -4,12 +4,12 @@ session_start();
 
 // Verifica se o usuário não está autenticado
 if (!isset($_SESSION['id'])) {
-    header("Location: includes/login.php"); 
-    exit; 
+    header("Location: includes/login.php");
+    exit;
 }
 
 // Consulta ao banco de dados para obter os dados do currículo
-$sql = "SELECT imagem_perfil, nome, idade, rua, bairro, estado, biografia FROM informacoes_usuario WHERE usuario_id = ?"; 
+$sql = "SELECT imagem_perfil, nome, idade, rua, bairro, estado, biografia FROM informacoes_usuario WHERE usuario_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_SESSION['id']);
 $stmt->execute();

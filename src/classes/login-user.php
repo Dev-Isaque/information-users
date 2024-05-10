@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Consulta SQL para verificar se o usuário existe no banco de dados
     $sql = "SELECT * FROM usuarios WHERE email = ?";
-    
+
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
@@ -30,14 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['id'] = $user['id'];
             $_SESSION['nome'] = $user['nome'];
-            
+
             $user_id = $user['id'];
             $sql_info = "SELECT * FROM informacoes_usuario WHERE usuario_id = ?";
             $stmt_info = $conn->prepare($sql_info);
             $stmt_info->bind_param("i", $user_id);
             $stmt_info->execute();
             $result_info = $stmt_info->get_result();
-            
+
             // Verificar se há resultados
             if ($result_info->num_rows == 0) {
                 echo "no_info";

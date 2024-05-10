@@ -1,9 +1,10 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .background-gradient {
@@ -11,20 +12,19 @@ html, body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh; 
+  height: 100vh;
   z-index: -1;
-  background: linear-gradient(#141e30, #243b55); 
+  background: linear-gradient(#141e30, #243b55);
 }
 
 .gradient-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 120px; 
+  padding-top: 120px;
 }
 
 /****** PAGINA DE INDEX ******/
-
 .perfil-container {
   max-width: 600px;
   margin: auto;
@@ -32,26 +32,15 @@ html, body {
 }
 
 .card-box {
-  position: absolute;
-  top: 50%;
-  left: 50%; 
-  width: 800px;
+  width: 100%;
+  /* Alterado para 100% para se adaptar a diferentes larguras de tela */
+  margin: 0 auto;
   padding: 40px;
-  transform: translate(-50%, -50%); 
-  z-index: 1; 
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
   border-radius: 10px;
-  background: rgba(0,0,0,.5); 
+  background: rgba(0, 0, 0, .5);
   color: #fff;
-}
-
-
-
-.perfil-card {
-  margin-top: 5vh;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .perfil-title {
@@ -62,7 +51,10 @@ html, body {
 
 .perfil-info {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  /* Quebrar em várias linhas se não couberem em uma única linha */
+  justify-content: center;
+  /* Centralizar os itens horizontalmente */
 }
 
 .perfil-info img {
@@ -71,49 +63,81 @@ html, body {
   object-fit: cover;
   border-radius: 50%;
   margin-right: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img-profile {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.img-profile::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  border-radius: 50%;
+  border: 3px solid rgba(3, 233, 244, 0.5);
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+.img-profile img {
+  position: relative;
+  z-index: 2;
+  border: 3px solid transparent;
 }
 
 .perfil-details {
-  flex-grow: 1;
+  margin-left: 20px;
 }
 
 .perfil-details p {
+  font-size: 0.9rem;
   margin-bottom: 5px;
 }
 
+.perfil-details p span {
+  font-size: 0.8rem;
+  margin-left: 1px;
+}
+
+.perfil-subtitle {
+  text-align: center;
+}
+
+.perfil-subtitle h4 {
+  font-size: 18px;
+}
+
+.perfil-subtitle hr {
+  border-bottom: 0.5px solid #03e9f4;
+  width: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.perfil-bio-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
 .perfil-bio {
-  margin-top: 20px;
+  margin: 0;
+  text-align: left;
+  white-space: pre-wrap;
 }
 
-/* Adicionando animações */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.perfil-bio span {
+  display: block;
 }
 
-.img-profile, .user-info {
-  animation: fadeIn 2s ease forwards;
-}
-
-/* Animação de slide-in para as informações do usuário */
-.user-info {
-  opacity: 0;
-  transform: translateY(50px);
-  animation: slideIn 1s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/****** PAGINA DE LOGIN / CADASTRO******/
+/****** DESIGNER DOS FORMULÁRIOS ******/
 .white-text {
   color: #fff;
 }
@@ -121,16 +145,16 @@ html, body {
 .form-box {
   position: absolute;
   top: 50%;
-  left: 50%; 
-  width: 80%; /* Alterado para 80% da largura da tela */
-  max-width: 400px; /* Adicionado para limitar a largura máxima */
+  left: 50%;
+  width: 80%;
+  max-width: 350px;
   padding: 40px;
   transform: translate(-50%, -50%);
   z-index: 1;
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
   border-radius: 10px;
-  background: rgba(0,0,0,.5); 
+  background: rgba(0, 0, 0, .5);
   color: #fff;
 }
 
@@ -159,7 +183,7 @@ html, body {
 
 .form-box .user-box input:valid,
 .form-box .user-box input:valid {
-  background-color: #E8F0FE; 
+  background-color: #E8F0FE;
   color: #000;
   font-size: 12px;
   padding-left: 5px;
@@ -167,7 +191,7 @@ html, body {
 
 .form-box .user-box label {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   padding: 10px 0;
   font-size: 16px;
@@ -176,8 +200,8 @@ html, body {
   transition: .5s;
 }
 
-.form-box .user-box input:focus ~ label,
-.form-box .user-box input:valid ~ label {
+.form-box .user-box input:focus~label,
+.form-box .user-box input:valid~label {
   top: -35px;
   left: 0;
   color: #03e9f4;
@@ -197,8 +221,8 @@ html, body {
   background: transparent;
 }
 
-.form-box .user-box textarea:focus ~ label,
-.form-box .user-box textarea:valid ~ label {
+.form-box .user-box textarea:focus~label,
+.form-box .user-box textarea:valid~label {
   top: -35px;
   left: 0;
   color: #03e9f4;
@@ -206,15 +230,17 @@ html, body {
 }
 
 .form-box .user-box textarea:valid {
-  background-color: #E8F0FE; 
+  background-color: #E8F0FE;
   color: #000;
   font-size: 12px;
   padding-left: 5px;
 }
 
-.form-box form .submit-btn {
+.custom-btn {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 16px;
@@ -222,25 +248,24 @@ html, body {
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
-  margin-top: 10px;
   letter-spacing: 4px;
   border: none;
   cursor: pointer;
   background: transparent;
 }
 
-.form-box form .submit-btn:hover {
+.custom-btn:hover {
   background: #03e9f4;
   color: #fff;
   box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
 }
 
-.form-box form .submit-btn span {
+.custom-btn span {
   position: absolute;
   display: block;
 }
 
-.form-box form .submit-btn span:nth-child(1) {
+.custom-btn span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -249,16 +274,7 @@ html, body {
   animation: btn-anim1 1s linear infinite;
 }
 
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
-  }
-  50%,100% {
-    left: 100%;
-  }
-}
-
-.form-box form .submit-btn span:nth-child(2) {
+.custom-btn span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -268,16 +284,7 @@ html, body {
   animation-delay: .25s
 }
 
-@keyframes btn-anim2 {
-  0% {
-    top: -100%;
-  }
-  50%,100% {
-    top: 100%;
-  }
-}
-
-.form-box form .submit-btn span:nth-child(3) {
+.custom-btn span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -287,16 +294,8 @@ html, body {
   animation-delay: .5s
 }
 
-@keyframes btn-anim3 {
-  0% {
-    right: -100%;
-  }
-  50%,100% {
-    right: 100%;
-  }
-}
 
-.form-box form .submit-btn span:nth-child(4) {
+.custom-btn span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
@@ -306,55 +305,58 @@ html, body {
   animation-delay: .75s
 }
 
-@keyframes btn-anim4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,100% {
-    bottom: 100%;
-  }
-}
 
 .password-toggle {
   position: absolute;
   top: 50%;
-  right: 15px; /* Ajuste conforme necessário */
+  right: 15px;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
 .password-toggle i {
-  color: #fff; /* Cor branca */
+  color: #fff;
 }
 
 .password-toggle i:hover {
-  color: #ccc; 
+  color: #ccc;
 }
 
-.form-box-info {
-  width: 60%; 
-  margin-top: 120px; 
-  margin-bottom: 120px;
+.form-edit {
+  max-width: 600px;
+  margin-top: 150px;
 }
 
-/* Adicionando media queries para dispositivos menores */
-@media (max-width: 768px) {
-  .form-box {
-    width: 90%; /* Alterado para 90% da largura da tela em dispositivos menores */
-  }
+/****** EDITAR PERFIL ******/
+#alterar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
 }
 
-/* Adicionando media queries para dispositivos muito pequenos */
-@media (max-width: 480px) {
-  .form-box {
-    padding: 20px; /* Reduzindo o preenchimento em dispositivos muito pequenos */
-  }
+#alterar-overlay p {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 50%;
 }
 
+.rounded-circle:hover #alterar-overlay {
+  display: block;
+}
+
+label#imagem_label {
+  cursor: pointer;
+}
 
 /****** NAVBAR ******/
 .navbar {
-  background: linear-gradient(#141e30, #243b55); /* Gradiente de fundo */
+  background: linear-gradient(#141e30, #243b55);
   padding: 0;
   box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
   transition: padding 0.3s, box-shadow 0.3s;
@@ -362,7 +364,7 @@ html, body {
 }
 
 .navbar-brand {
-  color: #fff; /* Cor do texto */
+  color: #fff;
 }
 
 .navbar .nav-item {
@@ -377,7 +379,78 @@ html, body {
   margin-left: auto;
 }
 
-/* Estilo do botão de fechar em dispositivos pequenos */
+/****** ANIMAÇÕES ******/
+/* Animação Campos forms */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animação Image */
+@keyframes neon {
+  from {
+    border-color: rgba(3, 233, 244, 0.5);
+    box-shadow: 0 0 5px rgba(3, 233, 244, 0.5);
+  }
+
+  to {
+    border-color: rgba(3, 233, 244, 1);
+    box-shadow: 0 0 15px rgba(3, 233, 244, 1);
+  }
+}
+
+/* Animação button */
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+/****** MEDIA QUERY ******/
+
 @media (max-width: 998px) {
   .navbar-collapse {
     height: 100%;
@@ -386,54 +459,69 @@ html, body {
     top: 0;
     right: 0;
     width: 50%;
-    background-color: #243b55; /* Cor de fundo da navbar no modo colapsado */
+    background-color: #243b55;
     z-index: 1000;
     padding: 20px;
-    display: none; 
+    display: none;
   }
+
   .navbar-collapse.show {
     margin-top: 9vh;
     transform: translateX(0%);
-    display: block; 
+    display: block;
   }
+
   .navbar-nav {
     height: 100%;
     padding-top: 60px;
   }
+
   .navbar-nav .nav-link {
-    color: #fff; /* Cor do texto dos links */
+    color: #fff;
   }
-  /* Estilo do botão de fechar */
+
   .close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #fff; /* Cor do ícone de fechar */
+    color: #fff;
     font-size: 20px;
     cursor: pointer;
   }
+
   .close-btn {
     top: 15px;
     right: 15px;
     font-size: 24px;
   }
+
   .navbar-toggler {
     display: block;
   }
+
   .navbar-toggler.collapsed .navbar-toggler-icon::after {
-    content: "\00D7"; /* Adiciona o ícone 'X' */
+    content: "\00D7";
   }
 }
 
-/* Estilos para dispositivos móveis */
 @media (max-width: 768px) {
-    .curriculum-info {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .form-box {
+    width: 90%;
+  }
 
-    .curriculum-info img {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
+  .curriculum-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .curriculum-info img {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-box {
+    padding: 20px;
+  }
 }

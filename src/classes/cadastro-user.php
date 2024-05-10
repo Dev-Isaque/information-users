@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
-        
+
         $stmt = $conn->prepare($sql);
         if ($stmt) {
             $stmt->bind_param("sss", $nome, $email, $senha_hash);

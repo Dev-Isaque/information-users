@@ -1,7 +1,5 @@
 <?php include 'header.php' ?>
 
-<div class="background-gradient"></div>
-
 <div class="gradient-container">
   <div class="form-box">
     <h2>Login</h2>
@@ -11,13 +9,13 @@
         <label>Email</label>
       </div>
       <div class="user-box">
-          <input type="password" class="form-control" id="password-login" name="password-login" required>
-          <label for="password-login">Senha</label>
-          <div class="password-toggle" id="togglePassword">
-              <i class="fas fa-eye toggle-icon"></i>
-          </div>
+        <input type="password" class="form-control" id="password-login" name="password-login" required>
+        <label for="password-login">Senha</label>
+        <div class="password-toggle" id="togglePassword">
+          <i class="fas fa-eye toggle-icon"></i>
+        </div>
       </div>
-      <button type="submit" class="submit-btn">
+      <button type="submit" class="custom-btn submit-btn">
         <span></span>
         <span></span>
         <span></span>

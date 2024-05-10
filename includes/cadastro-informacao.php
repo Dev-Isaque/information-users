@@ -1,7 +1,5 @@
 <?php include 'header.php' ?>
 
-<div class="background-gradient"></div>
-
 <div class="gradient-container">
   <div class="form-box form-box-info">
     <h2>Cadastro de Informações</h2>
@@ -35,7 +33,7 @@
         <input type="file" class="form-control-file" id="imagem_perfil" name="imagem_perfil" accept=".jpg, .jpeg, .png" required>
       </div>
 
-      <button type="submit" class="submit-btn">
+      <button type="submit" class="submit-btn custom-btn">
         <span></span>
         <span></span>
         <span></span>

@@ -2,7 +2,7 @@
 include_once "conn.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+
     // Verifique se todos os campos necessários foram enviados
     if (!isset($_POST['nome']) || !isset($_POST['idade']) || !isset($_POST['rua']) || !isset($_POST['bairro']) || !isset($_POST['estado']) || !isset($_POST['biografia']) || !isset($_FILES['imagem_perfil'])) {
         echo "Campos então faltando ou Null";
@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $usuario_id = $_SESSION['id'];
 
-    // Prepara os dados recebidos do formulário
     $nome = $_POST["nome"];
     $idade = $_POST["idade"];
     $rua = $_POST["rua"];
@@ -28,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Obtenha informações sobre o arquivo de imagem
         $nome_temporario = $_FILES['imagem_perfil']['tmp_name'];
         $extensao = pathinfo($_FILES['imagem_perfil']['name'], PATHINFO_EXTENSION); // Obtém a extensão do arquivo
-        
+
         // Gere um nome único para o arquivo
         $numero_unico = uniqid(); // Gera um identificador único baseado no tempo atual em formato hexadecimal
         $nome_arquivo_final = "img-userId-$usuario_id.$extensao"; // Novo nome do arquivo

@@ -5,7 +5,7 @@ include_once "conn.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+
     // Verifique se todos os campos necessários foram enviados
     if (!isset($_POST['nome']) || !isset($_POST['idade']) || !isset($_POST['rua']) || !isset($_POST['bairro']) || !isset($_POST['estado']) || !isset($_POST['biografia'])) {
         echo "Campos faltando ou nulos";
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Usuário não autenticado";
         exit;
     }
-    
+
     // Obtém o ID do usuário da sessão
     $usuario_id = $_SESSION['id'];
 
@@ -29,12 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_FILES['imagem_perfil']['error'] === UPLOAD_ERR_OK) {
         $nome_temporario = $_FILES['imagem_perfil']['tmp_name'];
         $extensao = pathinfo($_FILES['imagem_perfil']['name'], PATHINFO_EXTENSION); // Obtém a extensão do arquivo
-        
+
         // Gere um nome único para o arquivo
         $numero_unico = uniqid();
-        $nome_arquivo_final = "img-userId-$usuario_id.$extensao"; 
+        $nome_arquivo_final = "img-userId-$usuario_id.$extensao";
 
-        $diretorio_destino = '../image/uploads/'; 
+        $diretorio_destino = '../image/uploads/';
 
         // Excluir a imagem antiga
         $sql_imagem_antiga = "SELECT imagem_perfil FROM informacoes_usuario WHERE usuario_id=?";
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($stmt) {
                 $stmt->bind_param("sssssssi", $nome, $idade, $rua, $bairro, $estado, $biografia, $nome_arquivo_final, $usuario_id);
                 if ($stmt->execute()) {
-                    echo "success"; 
+                    echo "success";
                 } else {
                     echo "Erro ao atualizar o perfil";
                 }
@@ -78,6 +78,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erro no upload da imagem";
     }
 } else {
-    echo "Método de requisição inválido"; 
+    echo "Método de requisição inválido";
 }
-?>
